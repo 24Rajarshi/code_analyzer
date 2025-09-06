@@ -1,0 +1,18 @@
+version: 1
+name: calculator
+description: A toolkit to perform basic arithmetic operations
+env:
+- name: INTEL_USERNAME
+  description: Intel username to authenticate against internal services (not used for this demo sample)
+  secret: true
+  run: {}
+- name: INTEL_PASSWORD
+  description: Intel password to authenticate against internal services (not used for this demo sample)
+  secret: true
+  run: {}
+template:
+  type: python
+mcp: null
+run: {}
+dependencies: []
+examples: []
