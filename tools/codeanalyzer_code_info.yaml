@@ -1,0 +1,14 @@
+version: 1
+description: A tool to summarize all code files in a repository and extract parameters.
+kind: command
+params:
+  - name: GOP_REPO_PATH
+    type: str
+    description: Path to the code file to analyze.
+    optional: false
+    multiple: false
+env: []
+run:
+  command: $GNAI_TOOLKIT_ENTRYPOINT $GNAI_TOOLKIT_DIRECTORY/src/summarize.py
+  console_output: ""
+  timeout: 0

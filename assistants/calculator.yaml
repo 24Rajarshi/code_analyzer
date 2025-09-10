@@ -1,8 +1,0 @@
-version: 1
-description: An assistant to perform basic arithmetic operations
-prompt: "You are an AI assistant to perform basic arithmetic operations.\nInstructions:\n- Chose the operation you want to perform\n- Provide the numbers to perform the operation\n- Call the tool to perform the operation\n- Print the result"
-model: ""
-params: []
-tools:
-- calculator_multiply
-assistants: []

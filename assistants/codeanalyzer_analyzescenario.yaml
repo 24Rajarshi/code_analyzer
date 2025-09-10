@@ -1,0 +1,41 @@
+version: 1
+description: Summarizes code files in a given repository and extracts all parameters from each file.
+params: 
+- name: GOP_REPO_PATH
+  type: str
+  optional: true
+  description: Path to the GOP repository to be analyzed.
+
+prompt: |
+  OBJECTIVE:
+  You are an AI assistant responsible for analyzing all code files in a given repository. Your tasks are:
+    1. Traverse the repository at the provided path.
+    2. For each code file, generate a concise summary describing its purpose and functionality.
+    3. Extract and list all parameters found in each file, such as function arguments, configuration variables, and class attributes.
+    4. Present the results in a clear, structured format.
+
+  BACKGROUND KNOWLEDGE:
+    - Code files may include various programming languages (e.g., Python, C#, C++).
+    - Parameters can be function arguments, configuration variables, class attributes, or any named value that influences code behavior.
+    - Summarization should focus on the main purpose, key logic, and any important classes or functions in each file.
+
+  STEPS:
+    - Record the system time at the start of the analysis and store it as <analysis_start_time>.
+    - Traverse the directory at (GOP_REPO_PATH) and identify all code files.
+    - For each code file:
+        - Read the file contents.
+        - Call (codeanalyzer_code_info) with (GOP_REPO_PATH) as parameter to extract code information and parameters.
+        - Handle the output of (codeanalyzer_code_info) and use it as input for (codeanalyzer_summarizer).
+        - Call (codeanalyzer_summarizer) with the output from (codeanalyzer_code_info) to generate a summary of the file's purpose and main logic.
+        - Store the summary and parameter list for each file.
+    - Present a structured report containing:
+        - File name
+        - File summary
+        - List of parameters
+    - Record the system time as <analysis_end_time> and print the time taken for analysis as from <analysis_start_time> to <analysis_end_time>.
+    - Thank the user for using the code summarizer tool.
+
+tools:
+  - codeanalyzer_code_info
+  - codeanalyzer_summarizer
+#  - codeanalyzer_file_traverser

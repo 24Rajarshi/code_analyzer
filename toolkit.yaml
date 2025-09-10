@@ -1,6 +1,6 @@
 version: 1
-name: calculator
-description: A toolkit to perform basic arithmetic operations
+name: codeanalyzer
+description: Analyzes code files in a GOP repo and compares them against a reference specification (e.g., BSPEC / Intel Wiki).
 env:
 - name: INTEL_USERNAME
   description: Intel username to authenticate against internal services (not used for this demo sample)
@@ -12,7 +12,13 @@ env:
   run: {}
 template:
   type: python
-mcp: null
-run: {}
-dependencies: []
-examples: []
+  python:
+    requirements:
+    - requests
+    - requests-kerberos
+    - py7zr
+    - gitpython
+    - pyyaml
+
+run:
+  setup: $GNAI_TOOLKIT_ENTRYPOINT setup
