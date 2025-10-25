@@ -20,15 +20,14 @@ prompt: |
     - Extract and list all parameters (function arguments, configuration variables, class attributes).
 
   BACKGROUND INFO:
-    - Code files may be in various programming languages (e.g. C, C++).
+    - Code files may be in various programming languages (e.g. C, C++), but consider only C files (the files which has an extension as .c).
     - Parameters include function arguments, configuration variables, and class attributes.
-    - Summarization should be concise and focus on the main purpose, key logic, and important classes or functions.
+    - Summarization should be concise with 3-4 lines of what it does and focus on the main purpose, key logic, and important classes or functions.
 
   INSTRUCTIONS:
     - Read and analyze the provided {file_content}.
     - Summarize the file's purpose and main logic.
     - Extract all parameters found in the file.
-    - Store the output in a variable named {CODE_SUMMARY_OUTPUT} in markdown format (use triple backticks for code block). Do NOT add any extra commentary, explanation, or formatting. Do NOT deviate from the template.
 
   OUTPUT FORMAT (MANDATORY):
   CODE_SUMMARY_OUTPUT = """
