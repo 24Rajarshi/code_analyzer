@@ -50,6 +50,7 @@ def save_cache(cache_path, data):
         json.dump(data, f, indent=2)
 
 def summarize_directory(directory):
+    print("Executing summarize_directory.")
     mod_times = get_file_mod_times(directory)
     cache = load_cache(CACHE_FILE)
     use_cache = False
@@ -102,9 +103,12 @@ if __name__ == "__main__":
                 print('\n'.join(item['summary']))
                 print()
         else:
+            # TO DO : For single file analysis we are not doing caching.
             summary, _ = summarize_code(file_path)
             print("Summary:")
             print('\n'.join(summary))
+        cache_file_path = os.path.abspath(CACHE_FILE)
+        print(f"Summary Path: {cache_file_path}")
         analysis_end_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
         print(f"Analysis time: from {analysis_start_time} to {analysis_end_time}")
         print("Thank you for using the code summarizer tool.")

@@ -4,7 +4,7 @@ kind: command
 params:
   - name: GOP_REPO_PATH
     type: str
-    description: Path to the code file to analyze.
+    description: Path to the code file/repository to analyze.
     optional: false
     multiple: false
 env: []
