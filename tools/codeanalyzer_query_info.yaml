@@ -1,0 +1,20 @@
+version: 1
+description: A tool to recommend relevant files/functions for feature addition or bug fixing based on user queries and code analysis.
+kind: command
+params:
+  - name: USER_QUERY
+    type: str
+    description: The user's question about where to add a feature or fix a bug.
+    optional: false
+    multiple: false
+  - name: CODE_SUMMARIES_PATH
+    type: str
+    default: "C:\\Users\\rajarshi\\code_summary_cache.json"
+    description: Path to the file containing code summaries and parameters for each code file.
+    optional: false
+    multiple: false
+env: []
+run:
+  command: $GNAI_TOOLKIT_ENTRYPOINT $GNAI_TOOLKIT_DIRECTORY/src/recommendation_engine.py
+  console_output: ""
+  timeout: 0
